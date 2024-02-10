@@ -1,0 +1,424 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+  <meta charset="utf-8"> <!-- utf-8 works for most cases -->
+	<meta name="viewport" content="width=device-width"> <!-- Forcing initial-scale shouldn't be necessary -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- Use the latest (edge) version of IE rendering engine -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&family=Roboto&family=Roboto+Slab&display=swap" rel="stylesheet">
+		<meta name="color-scheme" content="light dark">
+	<meta name="supported-color-schemes" content="light dark">
+  <title></title> <!-- the <title> tag shows on email notifications on Android 4.4. -->
+  <style type="text/css">
+  	@font-face {
+      font-family: HarlowDuo;
+      src: url('img/HarlowDuo.ttf')  format('truetype');
+    }
+
+  	/* ensure that clients don't add any padding or spaces around the email design and allow us to style emails for the entire width of the preview pane */
+		body,
+		#bodyTable {
+			height:100% !important;
+			width:100% !important;
+			margin:0;
+			padding:0;
+		}
+		
+		/* Ensures Webkit- and Windows-based clients don't automatically resize the email text. */
+		body,
+		table,
+		td,
+		p,
+		a,
+		li,
+		blockquote {
+			-ms-text-size-adjust:100%;
+			-webkit-text-size-adjust:100%;
+		}
+
+		/* Forces Yahoo! to display emails at full width */
+		.thread-item.expanded .thread-body .body, .msg-body {
+			width: 100% !important;
+			display: block !important;
+		}
+
+    /* Forces Hotmail to display emails at full width */
+    .ReadMsgBody
+    .ExternalClass {
+			width: 100%;
+			background-color: #f4f4f4;
+    }
+
+    /* Forces Hotmail to display normal line spacing. */
+		.ExternalClass,
+		.ExternalClass p,
+		.ExternalClass span,
+		.ExternalClass font,
+		.ExternalClass td,
+		.ExternalClass div {
+			line-height:100%;
+    }
+
+    /* Resolves webkit padding issue. */
+    table {
+			border-spacing:0;
+    }
+
+    /* Resolves the Outlook 2007, 2010, and Gmail td padding issue, and removes spacing around tables that Outlook adds. */
+    table,
+    td {
+			border-collapse:collapse;
+			mso-table-lspace:0pt;
+			mso-table-rspace:0pt;
+    }
+    
+    /* Corrects the way Internet Explorer renders resized images in emails. */
+    img {
+    	-ms-interpolation-mode: bicubic;
+    }
+    
+    /* Ensures images don't have borders or text-decorations applied to them by default. */
+    img,
+    a img {
+    	border:0;
+    	outline:none;
+    	text-decoration:none;	    
+    }
+
+    /* Styles Yahoo's auto-sensing link color and border */
+    .yshortcuts a {
+			border-bottom: none !important;
+    }
+    
+    /* Styles the tel URL scheme */
+    a[href^=tel]{
+	    color:#000000 !important;
+    }
+  
+    /* Media queries for when the viewport is smaller than the default email width but not too narrow. */
+    @media screen and (max-device-width: 600px), screen and (max-width: 600px) {
+
+			/* Constrains email width for small screens */
+			table[class="email-container"] {
+				width: 100% !important;
+			}
+			/* Constrains tables for small screens */
+			table[class="fluid"] {
+				width: 100% !important;
+			}
+			
+			/* Forces images to resize to full width of their container */
+			img[class="fluid"] {
+				width: 100% !important;
+				max-width: 100% !important;
+				height: auto !important;
+			}
+
+			     /* Force table cells into rows */
+      td[class="momen"] {
+        display: block !important;
+        width: 100% !important;
+        clear: both;
+        padding: 0 !important;
+        border: 0 !important;
+
+      }
+
+
+    }
+
+    /* Media queries for when the viewport is narrow. */
+    /* Rules prefixed with 'hh-' (for 'handheld') repeat much of what's above, but these don't trigger until the smaller screen width. */
+    @media screen and (max-device-width: 425px), screen and (max-width: 425px) {
+			
+			/* Force table cells into rows */
+			td[class="momen"] {
+				display: block !important;
+				width: 100% !important;
+				clear: both;
+        padding: 0 !important;
+
+			}
+
+			td[class="contact"] {
+				font-size: 14px !important;
+				line-height: 18px !important;
+			}
+			p[class="contact"] {
+				font-size: 13px !important;
+				line-height: 25px !important;
+			}
+
+			td[class="padd0"] {
+				padding: 0 !important;
+        border: 0 !important;
+
+			}
+			td[class="paddcon"] {
+				padding:50px 10px !important;
+
+			}
+
+			td[class="padd"] {
+				padding: 30px !important;
+
+			}
+
+			td[class="btn"] {
+				padding: 10px !important;
+
+			}
+
+
+      td[class="padd"] {
+        padding:10px !important;
+
+      }
+
+
+      td[class="Limited"] {
+        font-size: 14px !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+
+      }
+
+
+      h2[class="percent"] {
+       font-size: 22px !important;
+
+      }
+
+ 
+
+      span[class="Prices"] {
+       font-size: 40px !important;
+
+      }
+
+		
+      /* Forces images to resize to full width of their container */
+      img[class="btn"] {
+        width:200px !important;
+        max-width: 100% !important;
+        height: auto !important;
+      }
+
+      
+
+    }
+          
+
+    @media (prefers-color-scheme: dark ) {
+      
+      .body {
+        
+      }
+      
+      h1, h2, h3, p, td {
+        
+      }
+      
+      /* More styles here */
+    }
+
+  </style>
+</head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#ffffff" style="margin:0; padding:0; -webkit-text-size-adjust:none; -ms-text-size-adjust:none;">
+<table cellpadding="0" cellspacing="0" border="0" height="100%" width="100%" bgcolor="#ffffff" id="bodyTable"><tr><td>
+
+<!--[if mso]>
+<style type="text/css">
+body, table, td, p, li, {font-family: 'Source Sans Pro', sans-serif, Arial !important;}
+</style>
+<![endif]-->
+
+<!-- CSS Image background in Outlook : BEGIN -->
+<!-- Best used with absolute image paths -->
+<!--[if gte mso 9]>
+  <v:background xmlns:v="urn:schemas-microsoft-com:vml" fill="t">
+    <v:fill type="tile" color="#f4f4f4" src="assets/nice_snow.png">
+  </v:background>
+<![endif]-->
+<!-- CSS Image background in Outlook : END -->
+
+  <!-- Email Container : BEGIN -->
+  <!-- This table wraps the whole body email within it's width (600px), sets the background color (white) and border (thin, gray, solid) -->
+    <table border="0" width="600" cellpadding="0" cellspacing="0" align="center" bgcolor="#ffffff" style="margin: auto;" class="email-container">   
+
+      <tr>
+        <td style="text-align: center;padding: 10px;background: #002134;font-family: sans-serif;font-size: 14px;color: #ffffff;text-align: right;">
+          <a href="#" target="_blank" style="color: #ffffff;text-decoration: none;">EN</a>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <a href="https://628saint-jacques.com/en/" target="_blank"><img src="https://i.postimg.cc/X7j1Fw5K/banner.png" alt="" height="auto" width="100%" border="0" style="" class="fluid"></a>
+        </td>
+      </tr>
+
+      <tr>
+        <td style="background: #002134;font-family: sans-serif;font-size: 20px;text-align: center;color: #ffffff;">
+        <img src="https://i.postimg.cc/h4b3fCXP/banner2.png" alt="ELEVATED finishes AMAZING views EXCEPTIONAL location" height="auto" width="100%" border="0" style="" class="fluid">
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <table width="100%" cellpadding="0" cellspacing="0" align="center" border="0">
+            
+             <tr>
+              <td class="padd" style="font-family: sans-serif; padding:10px 40px; background-color: #E8E1DE;">
+                <table border="0" width="100%" cellpadding="0" cellspacing="0" align="center">
+                  <tr>
+                    <td class="padd" style="font-family: 'Open Sans', sans-serif; font-size: 16px; line-height: 20px; color: #002134;text-align: center;"> 
+                    <p style="margin-top: 0;">628 Saint-Jacques is a heritage-inspired boutique condominium
+                    conveniently situated directly across from Square Victoria. An ideal
+                    location where luxury living is redefined. This 35-storey condominium offers over 6,000 sq. ft. of amenity spaces reserved exclusively for its
+                    residents, inspired to rejuvenate and celebrate your best life.</p>
+                     
+                   <p> Residents have access to an outdoor rooftop pool and barbeque area that offer stunning views over the city.  A sauna and gym to help you reach all of your fitness goals and if you are looking for a moment of tranquility visit the yoga space.</p> 
+
+                    <p>The lounge is the perfect place to mix and mingle with friends and
+                    celebrate special occasions with access to a kitchen and bar area.
+                    Entertaining just reached new heights.</p> 
+
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr> 
+          </table>
+        </td>
+      </tr>
+      
+      <tr>
+        <td style="background: #002134;font-family: sans-serif;font-size: 20px;text-align: center;color: #ffffff;">
+        <img src="https://i.postimg.cc/brT6Wv72/banner3.jpg" alt="ELEVATE YOUR lifestyle WITH EXCEPTIONAL AMENITY SPACES THAT CATER TO everyone." height="auto" width="100%" border="0" style="" class="fluid">
+        </td>
+      </tr>
+
+      <tr>
+        <td style="font-family: sans-serif;background: #04243D; padding: 30px;">
+          <table border="0" width="100%" cellpadding="0" cellspacing="0" align="center">
+            <tr>
+              <td class="Limited" style="font-family:'Open Sans', sans-serif; font-size: 26px; line-height: 120%; color: #ffffff;font-weight: 400;text-align: center;letter-spacing: 2px;">
+               
+               <h2 class="percent" style="margin-bottom: 0;font-size: 30px;margin-top: 10px;line-height: 120%;font-weight: 500;text-transform: uppercase;">Choose from a selection <br>
+                 of luxury suites:</h2>
+
+                 <p style="margin-bottom: 0;"><span style="font-weight: 300;"> TWO BEDROOMS</span> <br> 
+                  <i>starting from</i> <br>
+                  <span class="Prices" style="font-weight: 300;font-size: 55px;line-height: 70px;">$679,000*</span></p>
+                   <p style="margin: 0;line-height: 50px;">|</p>
+
+                   <p style="margin: 0;"><span style="font-weight: 300;"> PENTHOUSES</span> <br> 
+                  <i>starting from</i> <br>
+                  <span class="Prices" style="font-weight: 300;font-size: 55px;line-height: 70px;">$1,749,900*</span></p>
+
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+
+      <tr>
+              <td class="paddcon" style="padding:30px 30px 20px 30px; font-family: sans-serif;background: #ffffff;">
+                <table border="0" width="100%" cellpadding="0" cellspacing="0" align="center">
+                  <tbody><tr>
+                    <td class="contact" style="font-family:'Work Sans', sans-serif; font-size: 16px; line-height: 22px; color: #374529;font-weight: 700;text-align: center;">
+                        <table border="0" width="" cellpadding="0" cellspacing="0" align="center">
+                          <tbody><tr>
+                            <td class="btn" style="padding: 15px 30px;color: #AFBFC0;text-align: center;font-family:'Work Sans', sans-serif; font-weight: 700;">
+                              <a href="mailto:info@628saint-jacques.com?subject=I'd like to book an appointment for 628 Saint Jacques" target="_blank" style="color: #374529;text-decoration: none;"><img src="https://i.postimg.cc/MGMFHqQh/btn.png" alt="BOOK YOUR APPOINTMENT" width="280" height="auto"></a>
+                            </td>
+                          </tr>
+                        </tbody></table>
+                    </td>
+                  </tr>
+                </tbody></table> <br>
+
+                <table border="0" width="100%" cellpadding="0" cellspacing="0" align="center">
+                  <tbody><tr>
+                    <td class="contact" style="font-family:'Work Sans', sans-serif; font-size: 14px; line-height: 22px; color: #374529;font-weight: 400;text-align: center;padding-bottom: 10px;">
+                     
+                        <table border="0" width="" cellpadding="0" cellspacing="0" align="center">
+                          <tbody><tr>
+                            <td class="momen" style="padding: 10px 20px;color: #002134;text-align: center;font-family:'Work Sans', sans-serif; font-weight: 400;border-right: 1px solid #002134;">
+                              <img src="https://i.postimg.cc/VNxHbp95/veronique.jpg">
+                              <p><span style="font-size: 14px;text-transform: uppercase;">VÉRONIQUE BEAUPRÉ</span> <br>
+                               Residential Real Estate Broker<br>
+                                 <a href="callto:5149712911" style="color: #002134;text-decoration: none;">514-971-2911</a> <br>
+                               <a href="mailto:veroniquebeaupre@immobaker.com?subject=I'm interested in 628 Saint Jacques" style="color: #002134;text-decoration: none;">veroniquebeaupre@immobaker.com</a></p>
+                            </td>
+                            <td class="momen" style="padding: 10px 20px;color: #002134;text-align: center;font-family:'Work Sans', sans-serif; font-weight: 400;">
+                              <img src="https://i.postimg.cc/qR2DcwQw/chloe.jpg">
+                              <p><span style="font-size: 14px;text-transform: uppercase;">Chloé nadeau-guillemette</span> <br>
+                                Residential Real Estate Broker<br>
+                                 <a href="callto:5146611064" style="color: #002134;text-decoration: none;">514-661-1064</a> <br>
+                               <a href="mailto:chloe@immobaker.com?subject=I'm interested in 628 Saint Jacques" style="color: #002134;text-decoration: none;">chloe@immobaker.com</a></p>
+                            </td>
+                            
+                          </tr>
+                        </tbody>
+                      </table>
+                        
+                    </td>
+                  </tr>
+                </tbody></table>
+              </td>
+            </tr>
+
+      <tr>
+              <td class="paddcon" style="padding:30px 30px 20px 30px; font-family: sans-serif;background: #E8E1DE;">
+                <table border="0" width="100%" cellpadding="0" cellspacing="0" align="center">
+                  <tbody><tr>
+                    <td class="contact" style="font-family:'Work Sans', sans-serif; font-size: 16px; line-height: 22px; color: #374529;font-weight: 700;text-align: center;letter-spacing: 2px;">
+                     <span>BUREAU DES VENTES</span>
+                     
+                     <p class="contact" style="font-weight: 300; font-size:16px;line-height: 22px;letter-spacing: 2px;">
+                     <i><a href="https://www.google.com/maps/place/622+Rue+Saint-Jacques,+Montr%C3%A9al,+QC+H3C+1C7/@45.50061,-73.5633149,17z/data=!3m1!4b1!4m6!3m5!1s0x4cc91a5c0722b797:0x1ba61e4cd48271b2!8m2!3d45.50061!4d-73.56074!16s%2Fg%2F11v0msp28x?entry=ttu" target="_blank" style="color: #374529; text-decoration: none;">622, rue Saint-Jacques, Montréal (Québec) H3C 1C7</a></i> 
+                   </p>
+                   <p style="font-weight: 300; font-size:16px;line-height: 22px;letter-spacing: 2px;">Monday-Thursday: 12pm-6pm <br>
+                    Friday: CLOSED <br>
+                    Saturday & Sunday: 12pm-5pm</p>
+
+                    </td>
+                  </tr>
+                </tbody></table>
+              </td>
+            </tr>
+
+  </table>
+  <!-- Email Container : END -->
+  
+   <!-- Footer : BEGIN -->
+  <table border="0" width="600" cellpadding="0" cellspacing="0" align="center" class="email-container" style="background-color: #002134;">
+    <tr>
+      <td class="paddf" style="text-align: center;padding:30px 40px;font-family: sans-serif; font-size: 12px; line-height: 16px;color: #ffffff;">
+
+        <p style="margin: 0;"><a href="https://628saint-jacques.com/en/" target="_blank"><img src="https://i.postimg.cc/VkHhzddq/saint.png" width="50" height="auto" alt="628 Saint Jacques"></a> </p>
+        
+        <p><a href="https://www.broccolini.com/en" target="_blank"><img src="https://i.postimg.cc/WzjW5ZHv/5.png" width="180" height="auto" alt="broccolini"></a> </p>
+
+        <p style="margin-bottom: 0;">
+       *Prices and specifications are subject to change without notice. <br>
+      Contact a sales representative for full details. <br>
+      All illustrations are artist’s concept. E. & O. E.
+ 
+        </p>
+
+      </td>
+    </tr>
+  </table>
+  <!-- Footer : END -->
+
+</td></tr></table>
+</body>
+</html>
+
+
+
+
